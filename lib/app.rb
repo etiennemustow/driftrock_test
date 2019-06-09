@@ -29,11 +29,25 @@ class App
   def total_spend(email)
     total_spend = 0
     users_purchases =[]
-    user = users_data.find{|user| user["email"] == email}
+    user = users_data.find{|user| user["email"] == email.to_s}
     purchases_data.each do |d|
       spend = d["spend"].to_f
        total_spend += spend if d["user_id"] == user["id"]
      end
     return total_spend
   end
+end
+
+if ARGV[0] == "most_sold"
+  app = App.new
+  most_sold = app.most_sold
+  puts most_sold
+elsif ARGV[0] == "most_loyal"
+  app = App.new
+  most_loyal = app.most_loyal
+  puts most_loyal
+elsif ARGV[0] == "total_spend"
+  app = App.new
+  total_spend = app.total_spend(ARGV[1])
+  puts total_spend
 end
