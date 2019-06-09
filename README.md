@@ -17,7 +17,7 @@ bought)?
 ## Setting up the project
 
 - Run `git clone` this repo
-- Run `cd driftrock` to change into this project
+- Run `cd driftrock_test` to change into this project
 - Run `gem install bundler`
 - Run `bundle install` to install all the gems
 
@@ -36,3 +36,7 @@ bought)?
 ## My process
 
 Initially, I started creating the app.rb methods. After realising that this didnt allow for adequate testing. I separated the API call into a method of its own in a separate API class. I also created a class for App. This allowed for robust unit tests and separation of concerns. I tried to make sure all variables were labelled well enough for another developer to understand what's going on without the need for comments. I extracted mock data I used repeatedly into its own file as a constant. I also used ARGV to be able to allow the app to run from the command line.
+
+### Possible Improvements
+
+I'd have liked to account for some edge cases. For example, `most_sold` only returns the first most sold item due to the way the method is implemented. Although this is enough to satisfy the test requirements, what I could've done was assign the most sold items to an array and then printed the output of the array with the most sold items. 
