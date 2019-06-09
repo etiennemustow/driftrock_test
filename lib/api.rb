@@ -11,8 +11,8 @@ class API
   def call(end_point)
     url = first_url + end_point
     response = HTTParty.get(url)
-    object = JSON.parse(response.body)
-    results = object["data"]
+    json_response = JSON.parse(response.body)
+    results = json_response["data"]
     return results
   end
 end

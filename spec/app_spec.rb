@@ -30,12 +30,7 @@ RSpec.describe "App" do
     let(:app) {App.new}
     let(:mock_purchases_data) { MOCK_PURCHASES_DATA }
 
-    let(:mock_users_data){
-      [{"id" => "KZHR-1H35-2IH8-JXYN","first_name"=> "Quincy","last_name"=> "Schimmel","phone"=> "186.301.6921 x948","email"=> "schimmel_quincy@ernser.io"},
-        {"id"=> "S27G-8UMJ-LDSL-UOPN","first_name"=> "Henry","last_name"=> "Terry","phone"=> "636-387-6074 x690","email"=> "terry_henry@doyle.io"},
-        {"id"=> "HTNF-7RJY-YFCU-GUN2","first_name"=> "Tierra","last_name"=> "Langosh","phone"=> "570-113-3234 x7287","email"=> "langosh.tierra@erdman.co"},
-        {"id"=> "ZZLB-4HCN-OA3N-LGWB","first_name"=> "Jack","last_name"=> "Lakin","phone"=> "(620) 104-0175","email"=> "jack_lakin@rodriguezschuppe.io"}]
-    }
+    let(:mock_users_data){ MOCK_USERS_DATA }
     before do
       allow(app).to receive(:purchases_data).and_return(mock_purchases_data)
       allow(app).to receive(:users_data).and_return(mock_users_data)

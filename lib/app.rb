@@ -12,14 +12,14 @@ class App
 
   def most_sold
     sold_items = []
-    purchases_data.each {|d| sold_items << d["item"]}
-    most_sold_item = sold_items.max_by { |i| sold_items.count(i)}
+    purchases_data.each {|purchase_data| sold_items << purchase_data["item"]}
+    most_sold_item = sold_items.max_by { |item| sold_items.count(item)}
     return most_sold_item
   end
 
   def most_loyal
     users_ids = []
-    purchases_data.each {|d| users_ids << d["user_id"]}
+    purchases_data.each {|purchase_data| users_ids << purchase_data["user_id"]}
     most_loyal_id = users_ids.max_by { |id| users_ids.count(id) }
     most_loyal_user_hash = users_data.find{|user| user["id"] == most_loyal_id}
     most_loyal_user = most_loyal_user_hash["email"]
