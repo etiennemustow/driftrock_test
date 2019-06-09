@@ -17,7 +17,7 @@ bought)?
 ## Setting up the project
 
 - Run `git clone` this repo
-- Run `cd driftrock` to change into this project
+- Run `cd driftrock_test` to change into this project
 - Run `gem install bundler`
 - Run `bundle install` to install all the gems
 
