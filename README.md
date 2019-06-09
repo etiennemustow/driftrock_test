@@ -24,13 +24,17 @@ bought)?
 
 ## Running the app
 
-- Run `cd lib` to change into where the app.rb file is
- Run commands as required:
-* `ruby app.rb most_sold` to return the most sold item
-* `ruby app.rb total_spend [EMAIL]` to return the total spend of the user associated with the supplied email
-* `ruby app.rb most_loyal` to return the most loyal user (who bought the most amount of items)
+- Run `cd lib` to change into where the app.rb file is.
+- Run the following commands as necessary:
+
+| Command      | What it does        | 
+| ------------- |:-------------:|
+| `ruby app.rb most_sold` | returns the most sold item|
+| `ruby app.rb total_spend [EMAIL]` | returns the total spend of the user associated with the supplied email|
+|`ruby app.rb most_loyal` | returns the most loyal user (who bought the most amount of items)|
 
 ### To test
+- Make sure you're in the root directory (if in `/lib` then run `cd ..`)
 - Run `rspec` to see if tests pass
 
 ## My process
