@@ -1,9 +1,44 @@
-# require "app.rb"
-#
-# # RSpec.describe "App" do
-# #   context "most_sold" do
-# #     it "finds most sold item" do
-# #
-# #     end
-# #   end
-# # end
+require "app.rb"
+
+RSpec.describe "App" do
+  context "on initialisation" do
+    let(:app) {App.new}
+    it "has an api attribute" do
+      expect(app.api.class).to eq(API)
+    end
+    it "has a users_data attribute" do
+      expect(app.users_data.length).to_not eq(0)
+    end
+    it "has a purchases_data attribute" do
+      expect(app.purchases_data.length).to_not eq(0)
+    end
+  end
+
+  context "most_sold" do
+    let(:app) {App.new}
+    let(:mock_purchases_data) {
+      [{"user_id"=>"FFWN-1CKR-X4WU-Q44M", "item"=>"Awesome Marble Clock", "spend"=>"69.44"},
+        {"user_id"=>"HEI7-W5NW-OO9S-Z382", "item"=>"Synergistic Concrete Pants", "spend"=>"9.87"},
+        {"user_id"=>"HEI7-W5NW-OO9S-Z382", "item"=>"Synergistic Concrete Pants", "spend"=>"76.06"},
+        {"user_id"=>"BMCS-1VS1-39KR-7OUM", "item"=>"Durable Wool Shoes", "spend"=>"66.35"},
+        {"user_id"=>"T8VE-2OW8-A7SF-JZOB", "item"=>"Durable Wool Shoes", "spend"=>"31.3"},
+        {"user_id"=>"PJ69-9VN5-D5NA-IEB4", "item"=>"Mediocre Wooden Keyboard", "spend"=>"76.0"},
+        {"user_id"=>"NIU9-LO98-MZQG-E4RP", "item"=>"Gorgeous Aluminum Plate", "spend"=>"30.84"},
+        {"user_id"=>"EIGM-YGNY-BE29-UXXY", "item"=>"Durable Aluminum Bag", "spend"=>"5.2"},
+        {"user_id"=>"T8VE-2OW8-A7SF-JZOB", "item"=>"Rustic Steel Wallet", "spend"=>"80.34"},
+        {"user_id"=>"PJ69-9VN5-D5NA-IEB4", "item"=>"Synergistic Bronze Bottle", "spend"=>"35.55"},
+        {"user_id"=>"NGE1-SZL3-4WUU-NWD9", "item"=>"Incredible Linen Pants", "spend"=>"30.78"},
+        {"user_id"=>"7IE1-PDJ4-IPH6-8K3L", "item"=>"Gorgeous Steel Computer", "spend"=>"17.75"},
+        {"user_id"=>"HEI7-W5NW-OO9S-Z382", "item"=>"Gorgeous Silk Table", "spend"=>"53.43"},
+        {"user_id"=>"EIGM-YGNY-BE29-UXXY", "item"=>"Gorgeous Rubber Shoes", "spend"=>"71.43"},
+        {"user_id"=>"T8VE-2OW8-A7SF-JZOB", "item"=>"Durable Wool Shoes", "spend"=>"31.3"},
+        {"user_id"=>"T8VE-2OW8-A7SF-JZOB", "item"=>"Durable Wool Shoes", "spend"=>"31.3"}]
+    }
+    before do
+      allow(app).to receive(:purchases_data).and_return(mock_purchases_data)
+    end
+    it "finds most sold item" do
+      expect(app.most_sold).to eq("Durable Wool Shoes")
+    end
+  end
+end
