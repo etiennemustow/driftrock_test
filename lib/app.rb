@@ -25,4 +25,15 @@ class App
     most_loyal_user = most_loyal_user_hash["email"]
     return most_loyal_user
   end
+
+  def total_spend(email)
+    total_spend = 0
+    users_purchases =[]
+    user = users_data.find{|user| user["email"] == email}
+    purchases_data.each do |d|
+      spend = d["spend"].to_f
+       total_spend += spend if d["user_id"] == user["id"]
+     end
+    return total_spend
+  end
 end
